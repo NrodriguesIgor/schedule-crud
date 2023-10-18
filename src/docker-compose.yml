@@ -1,0 +1,25 @@
+version: '3.4'
+x-common-variables: &common-variables
+    RABBIT_MQ_CONNECTIONSTRING: amqp://guest:guest@host.docker.internal:5672
+
+services:
+    testeb3.api:
+        image: ${DOCKER_REGISTRY-}testeb3api
+        build:
+          context: .
+          dockerfile: Hosts/TesteB3.API/Dockerfile
+        environment: 
+            <<: *common-variables    
+
+    testeb3.workerservice:
+        image: ${DOCKER_REGISTRY-}testeb3workerservice
+        build:
+            context: .
+            dockerfile: Hosts/TesteB3.WorkerService/Dockerfile
+        environment: 
+            <<: *common-variables 
+    rabbitmq:   
+        image: rabbitmq:3-management
+        ports:
+            - "5672:5672"
+            - "15672:15672"
