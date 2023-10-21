@@ -5,6 +5,9 @@ x-common-variables: &common-variables
 services:
     testeb3.api:
         image: ${DOCKER_REGISTRY-}testeb3api
+        ports:
+            - "56487:443"
+            - "56486:80"
         build:
           context: .
           dockerfile: Hosts/TesteB3.API/Dockerfile

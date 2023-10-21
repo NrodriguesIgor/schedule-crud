@@ -71,5 +71,6 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+app.AppMigrations();
 
 app.Run();

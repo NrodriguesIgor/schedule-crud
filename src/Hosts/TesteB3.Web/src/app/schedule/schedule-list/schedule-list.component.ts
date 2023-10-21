@@ -58,9 +58,6 @@ export class ScheduleListComponent implements OnInit {
 
   openNewDialog() {
     const dialogRef = this._dialog.open(ScheduleEditComponent,{      
-        width: '50%'  
-
-
 
     });
     dialogRef.afterClosed().subscribe({

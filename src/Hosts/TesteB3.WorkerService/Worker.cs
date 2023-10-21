@@ -21,7 +21,7 @@ namespace TesteB3.WorkerService
             {
                 while (!stoppingToken.IsCancellationRequested)
                 {
-                    Log.Logger.Information("RODANDO");
+                    Log.Logger.Information($"Worker Running at {DateTime.Now.ToString("dd/MM/yyyy HH:mm")}");
                     await Task.Delay(1000, stoppingToken);
                 }
             }

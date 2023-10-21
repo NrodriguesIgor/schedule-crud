@@ -1,5 +1,5 @@
 <div mat-dialog-title>
-    <h1>Employee Form</h1>
+    <h1>Schedule Form</h1>
 </div>
 <form [formGroup]="scheduleForm" (ngSubmit)="onFormSubmit()">
     <div mat-dialog-content class="content">
@@ -10,14 +10,25 @@
             </mat-form-field>
         </div>
         <div class="row">
-            <mat-form-field appearance="outline">
+            <mat-form-field class="half-width" appearance="fill">
+                <mat-label>Donwtime Start</mat-label>
+                <input
+                  matInput
+                  placeholder="dd.MM.yyyy hh:mm"
+                  formControlName="date"
+                  type="datetime-local"
+                  required
+                  tabindex="1"
+                />
+              </mat-form-field>
+            <!-- <mat-form-field appearance="outline">
                 <mat-label>Date</mat-label>
                 <input matInput [matDatepicker]="picker" formControlName="date">
                 <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
-            </mat-form-field>
+            </mat-form-field> -->
         </div>
-        <div class="row">
+        <div class="row" *ngIf="data">
             <!-- <mat-form-field appearance="outline">
                 <mat-label>Done</mat-label>
                 <input matInput type="text" formArrayName="done">

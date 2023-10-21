@@ -6,8 +6,8 @@ namespace TesteB3.Application.Commands
     {
         public CreateScheduleCommandValidator()
         {
-            RuleFor(x => x.Date)
-               .GreaterThanOrEqualTo(DateTime.Now);   
+            RuleFor(x => x.Date.Date)
+               .GreaterThanOrEqualTo(DateTime.Today);   
         }
     }
 }
