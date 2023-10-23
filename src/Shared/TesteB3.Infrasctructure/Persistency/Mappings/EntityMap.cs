@@ -29,11 +29,13 @@ namespace TesteB3.Infrasctructure.Persistency.Mappings
             builder
                 .Property(x => x.CreatedAt)
                     .HasColumnName("created_at")
+                    .HasColumnType("timestamp")
                     .IsRequired();
 
             builder
                 .Property(x => x.UpdatedAt)
-                    .HasColumnName("updated_at");
+                    .HasColumnName("updated_at")
+                    .HasColumnType("timestamp");
 
         }
     }

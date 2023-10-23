@@ -7,7 +7,8 @@ namespace TesteB3.Infrasctructure.Persistency
     {
 
         public DbSet<Schedule> Todos { get; set; }
-        protected override void OnConfiguring(DbContextOptionsBuilder options) => options.UseSqlite("DataSource=app.db;Cache=Shared");
+        protected override void OnConfiguring(DbContextOptionsBuilder options) => options.UseNpgsql(Environment.GetEnvironmentVariable("POSTGRES_CONNECTIONSTRING"));
+        //protected override void OnConfiguring(DbContextOptionsBuilder options) => options.UseNpgsql("User ID=postgres;Password=mysecretpassword;Host=localhost;Port=5432;Database=postgres;");
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

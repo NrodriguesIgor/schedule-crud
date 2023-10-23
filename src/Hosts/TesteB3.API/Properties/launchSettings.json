@@ -5,7 +5,9 @@
       "launchBrowser": true,
       "launchUrl": "swagger",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "RABBIT_MQ_CONNECTIONSTRING": "amqp://guest:guest@host.docker.internal:5672",
+        "POSTGRES_CONNECTIONSTRING": "User ID=postgres;Password=mysecretpassword;Host=host.docker.internal;Port=5432;Database=postgres;"
       },
       "dotnetRunMessages": true,
       "applicationUrl": "https://localhost:7112;http://localhost:5149"

@@ -11,17 +11,19 @@ namespace TesteB3.Infrasctructure.Persistency.Migrations
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateSequence(
+                name: "EntitySequence");
+
             migrationBuilder.CreateTable(
                 name: "schedules",
                 columns: table => new
                 {
-                    id = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    created_at = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    updated_at = table.Column<DateTime>(type: "TEXT", nullable: true),
-                    description = table.Column<string>(type: "TEXT", nullable: false),
-                    done = table.Column<bool>(type: "INTEGER", nullable: false),
-                    date = table.Column<DateTime>(type: "TEXT", nullable: false)
+                    id = table.Column<int>(type: "integer", nullable: false, defaultValueSql: "nextval('\"EntitySequence\"')"),
+                    created_at = table.Column<DateTime>(type: "timestamp", nullable: false),
+                    updated_at = table.Column<DateTime>(type: "timestamp", nullable: true),
+                    description = table.Column<string>(type: "text", nullable: false),
+                    done = table.Column<bool>(type: "boolean", nullable: false),
+                    date = table.Column<DateTime>(type: "timestamp", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -34,6 +36,9 @@ namespace TesteB3.Infrasctructure.Persistency.Migrations
         {
             migrationBuilder.DropTable(
                 name: "schedules");
+
+            migrationBuilder.DropSequence(
+                name: "EntitySequence");
         }
     }
 }

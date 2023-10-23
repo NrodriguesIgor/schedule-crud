@@ -15,6 +15,7 @@ namespace TesteB3.Infrasctructure.Persistency.Mappings
             builder
                 .Property(x => x.Date)
                     .HasColumnName("date")
+                    .HasColumnType("timestamp")
                     .IsRequired();
 
             builder

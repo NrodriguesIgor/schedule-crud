@@ -1,6 +1,8 @@
 version: '3.4'
 x-common-variables: &common-variables
-    RABBIT_MQ_CONNECTIONSTRING: amqp://guest:guest@host.docker.internal:5672
+    RABBIT_MQ_CONNECTIONSTRING: "amqp://guest:guest@host.docker.internal:5672"
+    POSTGRES_CONNECTIONSTRING: "User ID=postgres;Password=mysecretpassword;Host=host.docker.internal;Port=5432;Database=postgres;"
+
 
 services:
     testeb3.api:
@@ -26,3 +28,9 @@ services:
         ports:
             - "5672:5672"
             - "15672:15672"
+    postgres:
+        image: postgres
+        environment:
+          POSTGRES_PASSWORD: "mysecretpassword"
+        ports:
+          - "5432:5432"
